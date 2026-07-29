@@ -2,40 +2,64 @@
  * Note: The returned array must be malloced, assume caller calls free().
  */
 int* circularGameLosers(int n, int k, int* returnSize) {
-    // 1 2 3 4 5
-    // 1 1 2 0 0
-    int freq[n+1];
-    for(int i=0;i<n;i++)
-    {
-        freq[i]=0;
-    }
-    int arr[n];
-    int i=0,pos,p=1;
-    freq[0]=1;
+    int *res,*countarray;
+    res=(int*)malloc(n*sizeof(int));
+    countarray=(int*)calloc(n,sizeof(int));// 0 0 0 0 0
+    int b=0,i=1;
     while(1)
     {
-        i=i+k*p;
-        pos=i%n;
-        //printf("H%d\n",pos);
-        if(freq[pos]==1)
+        
+        if(countarray[b]==1)
         {
-            //printf("%d\n",pos);
             break;
         }
-        freq[pos]++;
-        
-        p++;
+        countarray[b]=1;
+        b=(b+(i*k))%n;
+        //printf("%d ",b);
+        i++;
     }
-    int *res=(int*)malloc(n*sizeof(int));
     int j=0;
     for(i=0;i<n;i++)
     {
-        if(freq[i]==0)
+        if(countarray[i]==0)
         {
-            res[j++]=i+1;
+            res[j]=i+1;
+            j++;
         }
     }
     *returnSize=j;
-   
     return res;
+
 }
+/*
+
+n=5  k=2  k=4   6%5-->1
+
+
+
+1 1 1 0 0
+0 1 2 3 4
+
+[4,5]
+
+
+
+
+
+
+
+
+
+
+
+n=10   k=2  
+2
+4
+6
+8
+
+
+
+
+
+*/
