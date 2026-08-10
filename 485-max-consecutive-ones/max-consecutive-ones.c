@@ -1,31 +1,28 @@
 int findMaxConsecutiveOnes(int* nums, int numsSize) {
-    int i,oc=0,moc=0;
-    for(i=0;i<numsSize;i++)
+    int i,co=0,mco=0;//[1,1,0,1,1,1]
+                     // 0 1 2 3 4 5
+    for(i=0;i<numsSize;i++)//i=6   numsSize=6  6<6
     {
-        if(nums[i]==1)
+        if(nums[i]==1)//num[5]==1 1==1
         {
-            oc++;
+            co++;//3
         }
         else
         {
-            if(oc>moc)
+            if(mco<co)// 0<2
             {
-                moc=oc;
+                mco=co;//mco=2
             }
-            oc=0;
+            co=0;//0
         }
     }
-    if(oc>moc)
+    if(mco<co)// 0<2
     {
-        moc=oc;
-        oc=0;
+        mco=co;//mco=2
     }
-    return moc;
-
-//                        i
-// 1 1 0 1 1 1 0 1 1 1 1
-// 0 1 2 3 4 5 6 7 8 9 10
-// oc=4  moc=4   moc<oc  
-
-
+    return mco;
 }
+/*
+3
+
+*/
