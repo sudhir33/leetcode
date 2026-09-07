@@ -13,4 +13,3 @@ int addDigits(int num) {
     }
     return res;
 }
-
