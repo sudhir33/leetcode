@@ -1,5 +1,5 @@
 int addDigits(int num) {
-    int res=0,rem;
+    int rem,res=0;
     while(num)
     {
         rem=num%10;
