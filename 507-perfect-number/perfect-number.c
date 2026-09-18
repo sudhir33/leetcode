@@ -1,31 +1,18 @@
 bool checkPerfectNumber(int num) {
-    if(num==1)return 0;
-    int sq,sum=1;
+    if(num==1) return 0;
+    int res=1,i,sq;
     sq=sqrt(num);
-    int i;
     for(i=2;i<=sq;i++)
     {
         if(num%i==0)
         {
-            //printf("%d ",i);
-            sum=sum+i;
-            sum=sum+num/i;
+            res=res+i;
+            if(i!=num/i)
+            {
+                res=res+(num/i);
+            }
         }
     }
-    if(sum==num)
-    {
-        return 1;
-    }
-    else
-    {
-        return 0;
-    }
+    return res==num;
+
 }
-/*
-num=28
-
-i=2   sum=1+2+14
-
-2*14
-
-*/
