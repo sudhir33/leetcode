@@ -1,6 +1,6 @@
 int searchInsert(int* nums, int numsSize, int target) {
     int i;
-    for(i=0;i<numsSize;i++)   
+    for(i=0;i<numsSize;i++)
     {
         if(nums[i]==target)
         {
@@ -12,13 +12,8 @@ int searchInsert(int* nums, int numsSize, int target) {
         }
     }
     return i;
+    
+    //           i=5
+    // 1 3 5 6 7   tar 100
+    // 0 1 2 3 4 
 }
-
-/*
-         
-2 6 8 10 12 15 20
-0 1 2  3  4  5 6
-
-target=20
-
-*/
