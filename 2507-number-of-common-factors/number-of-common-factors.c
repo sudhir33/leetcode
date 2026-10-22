@@ -9,12 +9,12 @@ int min(int a,int b)
 int commonFactors(int a, int b) {
     int i,res=0;
     int m=min(a,b);
-    for(i=1;i<=m;i++)
+    i=1;
+    while(1)
     {
-    	if(a%i==0 && b%i==0)
-    	{
-    		res++;
-		}
-	}
+        if(i>a || i>b)break;
+        if(a%i==0 && b%i==0) res++;
+        i++;
+    }
 	return res;
 }
